@@ -1,6 +1,4 @@
 import {createStore} from 'redux';
-import expect from 'expect';
-import deepFreeze from 'deep-freeze';
 
 const ADD_TODO = 'ADD_TODO';
 const TOGGLE_TODO = 'TOGGLE_TODO';
