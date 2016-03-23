@@ -23,7 +23,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './node_modules/html-webpack-template/index.ejs',
-      title: 'Redux: React Todo List Example (Adding a Todo)',
+      title: JSON.stringify(require('./package.json').description),
       appMountId: 'root',
       inject: false
     })
