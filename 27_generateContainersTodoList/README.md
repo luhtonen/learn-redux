@@ -1,5 +1,5 @@
 # Redux: Generating Containers with connect() from React Redux (VisibleTodoList)
-Learn how to write mapStateToProps() and mapDispatchToProps() functions and use connect() from React Redux library to generate container components from [the video by Dan Abramov](https://egghead.io/lessons/javascript-redux-passing-the-store-down-with-provider-from-react-redux).
+Learn how to write mapStateToProps() and mapDispatchToProps() functions and use connect() from React Redux library to generate container components from [the video by Dan Abramov](https://egghead.io/lessons/javascript-redux-generating-containers-with-connect-from-react-redux-visibletodolist).
 
 The project is setup as simple `Node.js` project with `webpack` and `webpack-dev-server` to build the script for the browser and run the dev server. In `package.json` file `scripts` section are defined `build` task to build the `todos.jsx` and `start` task to start development server. The development server is configured to run with react hot reload, which does not require page refresh on code changes, but code is build and newly build `bundle.js` script is loaded automatically.
 
