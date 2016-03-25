@@ -10,6 +10,9 @@ const SHOW_ALL = 'SHOW_ALL';
 const SHOW_ACTIVE = 'SHOW_ACTIVE';
 const SHOW_COMPLETED = 'SHOW_COMPLETED';
 
+// ---------------------------------------
+// REDUCERS
+// ---------------------------------------
 const todo = (state, action) => {
   switch (action.type) {
     case ADD_TODO:
@@ -60,6 +63,9 @@ const todoApp = combineReducers({
   visibilityFilter
 });
 
+// ---------------------------------------
+// ACTION CREATORS
+// ---------------------------------------
 let nextTodoId = 0;
 const addTodo = (text) => {
   return {
@@ -83,6 +89,9 @@ const setVisibilityFilter = (filter) => {
   };
 };
 
+// ---------------------------------------
+// UI COMPONENTS
+// ---------------------------------------
 const Link = ({
   active,
   children,
@@ -101,6 +110,7 @@ const Link = ({
   );
 };
 
+// state & dispatch mapping functions and connected smart UI component
 const maptStateToLinkProps = (
   state,
   ownProps
@@ -109,7 +119,6 @@ const maptStateToLinkProps = (
     active: ownProps.filter === state.visibilityFilter
   };
 };
-
 const mapDispatchToLinkProps = (
   dispatch,
   ownProps
@@ -122,12 +131,12 @@ const mapDispatchToLinkProps = (
     }
   };
 };
-
 const FilterLink = connect(
   maptStateToLinkProps,
   mapDispatchToLinkProps
 )(Link);
 
+// UI components
 const Footer = () => (
   <p>
     Show:
@@ -168,6 +177,7 @@ const TodoList = ({todos, onTodoClick}) => (
   </ul>
 );
 
+// smart UI component connected to dispatch function
 let AddTodo = ({dispatch}) => {
   let input;
 
@@ -187,6 +197,7 @@ let AddTodo = ({dispatch}) => {
 };
 AddTodo = connect()(AddTodo);
 
+// helper function
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
     case SHOW_ALL:
@@ -200,6 +211,7 @@ const getVisibleTodos = (todos, filter) => {
   }
 };
 
+// state & dispatch mapping functions and connected smart UI component
 const mapStateToTodoListProps = (state) => {
   return {
     todos: getVisibleTodos(
@@ -220,6 +232,7 @@ const VisibleTodoList = connect(
   mapDispatchToTodoListProps
 )(TodoList);
 
+// Main UI component
 const TodoApp = () => (
   <div>
     <AddTodo />
@@ -228,6 +241,7 @@ const TodoApp = () => (
   </div>
 );
 
+// Root react render function
 ReactDOM.render(
   <Provider store={createStore(todoApp)}>
     <TodoApp />
